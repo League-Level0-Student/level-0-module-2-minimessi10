@@ -13,33 +13,54 @@ import javax.swing.JApplet;
 import javax.swing.JOptionPane;
 
 public class AnimalFarm {
-	
-	public static void main(String[] args) {
-			
-		/* 1. Ask the user which animal they want, then play the sound of that animal. */			 
-			
-		/* 2. Make it so that the user can keep entering new animals. */
 
+	public static void main(String[] args) {
+
+		/*
+		 * 1. Ask the user which animal they want, then play the sound of that animal.
+		 */
+		String animal = JOptionPane.showInputDialog(null, "What animal do you want?");
+		/* 2. Make it so that the user can keep entering new animals. */
+		if(animal.equals("cow")) {
+			playMoo();
+		}
+		
+		 if(animal.equals("duck")) {
+			 playQuack();
+		 }
+		    if (animal.equals("dog")) {
+		    	playWoof();
+		    }
+		      if(animal.equals ("cat")) {
+		    	  playMeow();
+		      }
+		         if (animal.equals("llama")) {
+		            playLlama();
+		         }
+		
+		
+		
+		
 	}
 
 	static void playMoo() {
-		playNoise(mooFile);
+		JOptionPane.showMessageDialog(null,"moo");
 	}
 
 	static void playQuack() {
-		playNoise(quackFile);
+		JOptionPane.showMessageDialog(null,"quack");
 	}
 
 	static void playWoof() {
-		playNoise(woofFile);
+		JOptionPane.showMessageDialog(null,"woof");
 	}
-	
+
 	static void playMeow() {
-		playNoise(meowFile);
+		JOptionPane.showMessageDialog(null,"meow");
 	}
-	
+
 	static void playLlama() {
-		playNoise(llamaFile);
+		JOptionPane.showMessageDialog(null,"llama");
 	}
 
 	static String quackFile = "quack.wav";
@@ -49,14 +70,5 @@ public class AnimalFarm {
 	static String llamaFile = "llama.wav";
 
 	/* Ignore this stuff */
-	
-	public static void playNoise(String soundFile) {
-		try {
-			AudioClip sound = JApplet.newAudioClip(AnimalFarm.class.getResource(soundFile));
-			sound.play();
-			Thread.sleep(3400);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
+
 }
